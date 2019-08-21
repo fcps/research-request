@@ -14,9 +14,11 @@
     <style>
 
         /* Overrides other defaults from StackEdit to make sure fonts expand/shrink sufficiently and to ensure there
-        will be some amount of white space around the content if embedded as an iframe element in the website. */
+        will be some amount of white space around the content if embedded as an iframe element in the website. 
+	 Reduced the font size from 1.25 em to 1em to make sure the text did not get cut off in the workflow diagrams.
+	 */
         .stackedit__html {
-            font-size: 1.25em;
+            font-size: 1em;
             max-width: 95vw;
         }
 
@@ -47,13 +49,20 @@
             flex: 1 2 40vw;
         }
 
-        /* This replaces colors and styling implemented by StackEdit's CSS style for the workflow diagrams*/
-        .mermaid .node circle, .mermaid .node ellipse, .mermaid .node polygon, .mermaid .node rect {
+        /* This replaces colors and styling implemented by StackEdit's CSS style for the workflow diagrams.
+	 Added reference to output class as a child of the mermaid class to restore drawing the paths between the nodes.
+	 */
+        .mermaid .node circle, .mermaid .node ellipse, .mermaid .node polygon, .mermaid .node rect, .mermaid .output {
             fill: #FFFFFF;
             stroke: #2C2A29;
             stroke-width: 0.075em;
         }
-
+	
+	/* This element was added to ensure the arrowheads on the paths
+	   remained filled in. */
+	marker {
+		fill: #000000;
+	}
     </style>
 
 </head>
